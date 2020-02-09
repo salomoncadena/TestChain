@@ -14,7 +14,7 @@ public:
 
   string GetHash();
 
-  void MineBlock(uint32_t nDifficulty);
+  void MineBlock(uint32_t nDifficulty, int ID, int threads);
 
 private:
   uint32_t _nIndex;
@@ -22,6 +22,7 @@ private:
   string _sData;
   string _sHash;
   time_t _tTime;
+  bool _nonstop = true;
 
-  string _CalculateHash() const;
+  string _CalculateHash(int64_t nFunctionNonce) const;
 };
